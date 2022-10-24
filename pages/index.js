@@ -3,8 +3,9 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import GetSkills from "../lib/skillsHomeAPI"
 
+import GetSkillsHome from "../lib/getSkillsHomeAPI"
+import SkillHome from '../components/paper';
 
 const drawerWidth = 240;
 
@@ -29,7 +30,7 @@ export default function Home({allPosts}) {
           Has provided academic and professional services for a wide variety of students, clients, and customers. 
           Life-long learner with a passion for web development and digital marketing.
           </Typography>
-          <GetSkills/> 
+          <GetSkillsHome/>
         </Box>
       </Box> 
       </>
