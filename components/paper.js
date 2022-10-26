@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 import GetSkillsHome from '../lib/getSkillsHomeAPI';
 
-export default function SkillHome() {
+export default function SkillHome({data}) {
     return (
       <Box
         sx={{
@@ -22,7 +22,7 @@ export default function SkillHome() {
       >
         <Paper elevation={0} variant="outlined">
         <Typography paragraph align="center">
-            
+            {data.skillsCollection.items[0].name}
         </Typography>
         </Paper>
         <Paper variant="outlined" />
@@ -30,6 +30,7 @@ export default function SkillHome() {
       </Box>
     );
 }
+
 
 SkillHome.propTypes = {
     name:PropTypes.string
