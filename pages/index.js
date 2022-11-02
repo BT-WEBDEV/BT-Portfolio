@@ -2,10 +2,11 @@ import Head from 'next/head'
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Paper from '@mui/material/Paper';
 
 
-import GetSkillsHome from "../lib/getSkillsHomeAPI"
-import SkillHome from '../components/paper';
+import GetFrontendSkillsAPI from "../lib/frontendSkillsAPI"
 
 const drawerWidth = 240;
 
@@ -23,14 +24,111 @@ export default function Home({allPosts}) {
           sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
         >
           <Typography variant="h1" align="center">
-          Brandon Tetrick
+            Brandon Tetrick
           </Typography>
           <Typography paragraph align="center">
-          Former educator turned web developer with 7+ years of working in both the public and private sectors. 
-          Has provided academic and professional services for a wide variety of students, clients, and customers. 
-          Life-long learner with a passion for web development and digital marketing.
+            Former educator turned web developer with 7+ years of working in both the public and private sectors. 
+            Has provided academic and professional services for a wide variety of students, clients, and customers. 
+            Life-long learner with a passion for web development and digital marketing.
           </Typography>
-          <GetSkillsHome/>
+
+          <Divider/> 
+
+          <Typography variant="h4" align="center">
+            My Skill Set
+          </Typography>
+
+          {/* FRONTEND SKILLS BOX  */}
+          <GetFrontendSkillsAPI/> 
+          
+          {/* BACKEND SKILLS BOX  */}
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: 'auto',
+            justifyContent: "center",
+            mt: 5, 
+            mb: 5
+            }}
+          > 
+            <Paper 
+              elevation={3} 
+              sx={{
+                p: 2
+              }}
+            >
+              <Typography variant="h5" align="center"> 
+                Backend
+              </Typography>
+            </Paper>
+          </Box> 
+          
+
+          {/* DEVOPS SKILLS BOX  */}
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: 'auto',
+            justifyContent: "center",
+            mt: 5, 
+            mb: 5
+            }}
+          > 
+            <Paper 
+              elevation={3} 
+              sx={{
+                p: 2
+              }}
+            >
+              <Typography variant="h5" align="center"> 
+                DevOps
+              </Typography>
+            </Paper>
+          </Box> 
+          
+          {/* DESIGN SKILLS BOX  */}
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: 'auto',
+            justifyContent: "center",
+            mt: 5, 
+            mb: 5
+            }}
+          > 
+            <Paper 
+              elevation={3} 
+              sx={{
+                p: 2
+              }}
+            >
+              <Typography variant="h5" align="center"> 
+                Design
+              </Typography>
+            </Paper>
+          </Box> 
+
+          {/* PRODUCTIVITY SKILLS BOX  */}
+          <Box sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: 'auto',
+            justifyContent: "center",
+            mt: 5, 
+            mb: 5
+            }}
+          > 
+            <Paper 
+              elevation={3} 
+              sx={{
+                p: 2
+              }}
+            >
+              <Typography variant="h5" align="center"> 
+                Productivity
+              </Typography>
+            </Paper>
+          </Box> 
         </Box>
       </Box> 
       </>

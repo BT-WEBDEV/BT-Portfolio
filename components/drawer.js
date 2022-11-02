@@ -2,21 +2,24 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 
+import HomeIcon from '@mui/icons-material/Home';
+import WorkIcon from '@mui/icons-material/Work';
+import BuildIcon from '@mui/icons-material/Build';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import BookIcon from '@mui/icons-material/Book';
+import ChatIcon from '@mui/icons-material/Chat';
 
 const drawerWidth = 240;
 
@@ -34,29 +37,65 @@ function ResponsiveDrawer(props) {
           <Toolbar />
           <Divider />
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
+            <ListItem disablePadding>
+              <ListItemButton href="/">
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton href="/experience">
+                <ListItemIcon>
+                  <WorkIcon />
+                </ListItemIcon>
+                <ListItemText primary="Experience" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton href="/projects">
+                <ListItemIcon>
+                  <BuildIcon />
+                </ListItemIcon>
+                <ListItemText primary="Projects" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton href="/skills">
+                <ListItemIcon>
+                  <LightbulbIcon />
+                </ListItemIcon>
+                <ListItemText primary="Skills" />
+              </ListItemButton>
+            </ListItem>
           </List>
           <Divider />
           <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
+            <ListItem disablePadding>
+              <ListItemButton href="/certifications">
+                <ListItemIcon>
+                  <WorkspacePremiumIcon />
+                </ListItemIcon>
+                <ListItemText primary="Certifications" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton href="/blog">
+                <ListItemIcon>
+                  <BookIcon />
+                </ListItemIcon>
+                <ListItemText primary="Blog" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <ListItemButton href="/contact">
+                <ListItemIcon>
+                  <ChatIcon />
+                </ListItemIcon>
+                <ListItemText primary="Contact" />
+              </ListItemButton>
+            </ListItem>
           </List>
         </div>
     )
@@ -82,9 +121,6 @@ function ResponsiveDrawer(props) {
                     >
                     <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Responsive drawer
-                    </Typography>
                 </Toolbar>
             </AppBar>
             <Box
