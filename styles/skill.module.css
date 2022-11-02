@@ -1,0 +1,21 @@
+.skillLink {
+    width: 100%;
+    border: 4px solid rgba(0, 0, 0, 0.87);
+    height: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+    background-repeat: no-repeat; 
+    background-size: contain; 
+    background-position: center; 
+}
+
+.hoverableShow {
+    display: none;
+}
+
+.skillLink:hover .hoverableShow {
+    display: block;  
+}

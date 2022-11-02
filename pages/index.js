@@ -4,8 +4,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
-
-
 import GetFrontendSkillsAPI from "../lib/frontendSkillsAPI"
 
 const drawerWidth = 240;
