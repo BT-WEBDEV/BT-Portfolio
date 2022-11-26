@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import styles from '../styles/skill.module.css'
@@ -30,8 +29,9 @@ export default function FrontendSkillsHome({data}) {
           if(skill.usage == "Frontend") {
             return (
               <Link 
-                href="/skills/" 
+                href={'/skills/' + skill.slug}
                 className={styles.skillLink}
+                underline="none"
                 style={{
                   backgroundImage: `url(${skill.image.url})`,
                 }}
