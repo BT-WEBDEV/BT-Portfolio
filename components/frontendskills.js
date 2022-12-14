@@ -8,7 +8,7 @@ import styles from '../styles/skill.module.css'
 
 
 export default function FrontendSkillsHome({data}) {
-    console.table(data.skillsCollection.items); 
+    // console.table(data.skillsCollection.items); 
 
     return (
         <Box
