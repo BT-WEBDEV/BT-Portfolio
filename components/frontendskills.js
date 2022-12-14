@@ -8,7 +8,7 @@ import styles from '../styles/skill.module.css'
 
 
 export default function FrontendSkillsHome({data}) {
-
+    console.table(data.skillsCollection.items); 
 
     return (
         <Box
@@ -23,12 +23,13 @@ export default function FrontendSkillsHome({data}) {
             },
           }}
         >
-
+        
         {/* LOOP THROUGH CONTENTFUL OBJECT & GET FRONTEND SKILLS  */}
         { data.skillsCollection.items.map(skill => {
           if(skill.usage == "Frontend") {
             return (
               <Link 
+                key={skill.slug}
                 href={'/skills/' + skill.slug}
                 className={styles.skillLink}
                 underline="none"
@@ -37,7 +38,7 @@ export default function FrontendSkillsHome({data}) {
                 }}
               > 
                 <Typography 
-                  h3
+                  h3="true"
                   align="center"
                   className = {styles.hoverableShow}
                 >
