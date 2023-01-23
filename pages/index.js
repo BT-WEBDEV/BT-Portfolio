@@ -33,7 +33,13 @@ export default function Home({allPosts}) {
 
           <Divider/> 
 
-          <Typography variant="h4" align="center">
+          <Typography 
+            variant="h4" 
+            align="center"
+            sx= {{
+              mt: 5
+            }}
+          >
             My Skill Set
           </Typography>
 
