@@ -6,6 +6,10 @@ import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
 import GetFrontendSkillsAPI from "../lib/frontendSkillsAPI"
 import GetBackendSkillsAPI from "../lib/backendSkillsAPI"
+import GetDevopsSkillsAPI from "../lib/devopsSkillsAPI"
+import GetDesignSkillsAPI from "../lib/designSkillsAPI"
+import GetProductivitySkillsAPI from "../lib/productivitySkillsAPI"
+
 
 const drawerWidth = 240;
 
@@ -57,70 +61,13 @@ export default function Home({allPosts}) {
           <GetBackendSkillsAPI/> 
 
           {/* DEVOPS SKILLS BOX  */}
-          <Box sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            width: 'auto',
-            justifyContent: "center",
-            mt: 5, 
-            mb: 5
-            }}
-          > 
-            <Paper 
-              elevation={3} 
-              sx={{
-                p: 2
-              }}
-            >
-              <Typography variant="h5" align="center"> 
-                DevOps
-              </Typography>
-            </Paper>
-          </Box> 
+          <GetDevopsSkillsAPI/> 
           
           {/* DESIGN SKILLS BOX  */}
-          <Box sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            width: 'auto',
-            justifyContent: "center",
-            mt: 5, 
-            mb: 5
-            }}
-          > 
-            <Paper 
-              elevation={3} 
-              sx={{
-                p: 2
-              }}
-            >
-              <Typography variant="h5" align="center"> 
-                Design
-              </Typography>
-            </Paper>
-          </Box> 
+          <GetDesignSkillsAPI/>  
 
           {/* PRODUCTIVITY SKILLS BOX  */}
-          <Box sx={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            width: 'auto',
-            justifyContent: "center",
-            mt: 5, 
-            mb: 5
-            }}
-          > 
-            <Paper 
-              elevation={3} 
-              sx={{
-                p: 2
-              }}
-            >
-              <Typography variant="h5" align="center"> 
-                Productivity
-              </Typography>
-            </Paper>
-          </Box> 
+          <GetProductivitySkillsAPI/> 
         </Box>
       </Box>  
       </>
