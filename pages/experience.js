@@ -21,6 +21,7 @@ const query = ` {
       location
       dateRange
       url
+      linkedin
       experience {
         json
       }

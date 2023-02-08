@@ -1,14 +1,16 @@
 import * as React from 'react';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Link  from '@mui/material/Link';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import styles from '../styles/experience.module.css'
 
 
-export default function ExperienceComponent({experience}) {
-    //console.table(experienceCollection.items); 
+export default function ExperienceComponent({experience}) {    
     return (
       <Box 
       key={experience.slug}
@@ -22,33 +24,87 @@ export default function ExperienceComponent({experience}) {
         }}
       > 
         <Paper 
-          elevation={3} 
+          elevation={3}
+          className={styles.experiencePaper} 
           sx={{
             p: 2,
             display: 'flex',
+            width: '100%',
             justifyContent: 'center', 
             flexDirection: 'column', 
             overflow: 'hidden'
           }}
         >
-        <Link 
-            key={experience.slug}
-            href={'/experience/' + experience.slug}
-            underline="none"
-            className={styles.experienceLink}
-            style={{
-            backgroundImage: `url(${experience.image.url})`,
-            }}
-        /> 
-          <Typography variant="h5" align="center"> 
-            {experience.name}
-          </Typography>
-          <Divider/>
+            <Box 
+              className={styles.experienceIcons}
+              sx={{
+                display: 'flex', 
+                flexDirection: 'row',
+                justifyContent: 'end', 
+              }}
+            >
+                {experience.url ? (
+                <Link 
+                  href={experience.url}
+                  target='_blank'
+                >
+                    <OpenInNewIcon />
+                </Link>
+                ) : null}
 
-          <Typography variant="p" align="center"> 
-            {experience.location}
-          </Typography>
-        
+                {experience.linkedin ? (
+                <Link 
+                  href={experience.linkedin}
+                  target='_blank'
+                >
+                    <LinkedInIcon />
+                </Link>
+                ) : null}
+            </Box> 
+            <Link 
+                id={experience.slug}
+                key={experience.slug}
+                href={'/experience/' + experience.slug}
+                underline="none"
+                className={styles.experienceLink}
+                style={{
+                backgroundImage: `url(${experience.image.url})`,
+
+                }}
+            /> 
+            <Typography variant="h4" align="center"
+                sx={{ 
+                pt: 3  
+                }}
+            > 
+                {experience.name}
+            </Typography>
+            <Typography variant="p" align="center"> 
+                {experience.position}
+            </Typography>
+            <Divider
+                sx={{ 
+                    pt: 2  
+                }}
+            />
+            <>
+                {documentToReactComponents(
+                experience.experience.json
+                )}
+            </>
+            <Divider/>  
+            <Typography 
+                variant="p" 
+                align="center"
+                sx={{ 
+                    pt: 2  
+                }}
+            > 
+                {experience.location}
+            </Typography>
+            <Typography variant="p" align="center"> 
+                {experience.dateRange} 
+            </Typography>
         </Paper>
       </Box> 
     )

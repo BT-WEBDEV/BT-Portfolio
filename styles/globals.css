@@ -28,3 +28,9 @@ a {
 .title {
   text-align: center;
 }
+
+/* SOCIAL SEO LOGO CUSTOM HEIGHT & WIDTH ON EXPERIENCE PAGE */ 
+#social-seo {
+  width: 300px; 
+  height: 90px; 
+}
