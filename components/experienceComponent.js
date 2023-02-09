@@ -5,12 +5,14 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Link  from '@mui/material/Link';
+import Stack from '@mui/material/Stack';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import ExperienceSkillChips from './experienceSkillChips';
 import styles from '../styles/experience.module.css'
 
 
-export default function ExperienceComponent({experience}) {    
+export default function ExperienceComponent({experience}) {   
     return (
       <Box 
       key={experience.slug}
@@ -68,8 +70,9 @@ export default function ExperienceComponent({experience}) {
                 underline="none"
                 className={styles.experienceLink}
                 style={{
-                backgroundImage: `url(${experience.image.url})`,
-
+                    backgroundImage: `url(${experience.image.url})`,
+                    marginLeft: 'auto', 
+                    marginRight: 'auto'
                 }}
             /> 
             <Typography variant="h4" align="center"
@@ -82,6 +85,21 @@ export default function ExperienceComponent({experience}) {
             <Typography variant="p" align="center"> 
                 {experience.position}
             </Typography>
+
+            <Stack 
+                direction="row"
+                spacing={1}
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginTop: '25px'
+                }}>
+                    {experience.skillsCollection.items.map((skill, index) => {
+                        return <ExperienceSkillChips skill={skill} key={index}/>
+                    })}
+            </Stack>
+
             <Divider
                 sx={{ 
                     pt: 2  

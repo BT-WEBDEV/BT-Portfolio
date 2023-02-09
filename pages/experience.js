@@ -25,6 +25,17 @@ const query = ` {
       experience {
         json
       }
+      skillsCollection(limit:10) {
+        items {
+          ... on Skills {
+            name
+            slug
+            image {
+              url
+            }
+          }
+				}
+      }
       image {
         title
         description
@@ -38,7 +49,6 @@ const query = ` {
     }
   }
 }
-
 `
 
 export default function Experience() {
@@ -108,6 +118,7 @@ export default function Experience() {
           <Divider/> 
 
           { data.experienceCollection.items.map(experience => {
+            //console.table(experience)
             return <ExperienceComponent experience={experience} key={experience.order} /> 
           })}
         </Box>

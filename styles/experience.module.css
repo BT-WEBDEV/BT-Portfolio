@@ -8,8 +8,6 @@
     height: 100px;
     display: flex;
     position: relative;
-    margin-left: auto; 
-    margin-right: auto; 
     justify-self: center;
     flex-direction: column;
     justify-content: center;
