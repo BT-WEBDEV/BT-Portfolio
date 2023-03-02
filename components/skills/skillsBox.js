@@ -20,7 +20,7 @@ export default function SkillsBox({data}) {
   return (
     <>
       {orderedSkills.map(({ usage, skills }) => (
-        <Box sx={{
+        <Box key={usage} sx={{
           display: 'flex',
           justifyContent: "center",
           flexWrap: 'wrap',
@@ -29,6 +29,7 @@ export default function SkillsBox({data}) {
           mt: 5, 
           mb: 5
           }}
+
         > 
           <Paper 
           elevation={3}
@@ -51,7 +52,9 @@ export default function SkillsBox({data}) {
                 flexDirection: 'row', 
                 justifyContent: 'center'
               }}> 
-                {skills.map(skill => <Skill key={skill.title} skill={skill} />)}
+                {skills.map((skill, index) => (
+                  <Skill key={index} skill={skill} />
+                ))}
               </Box> 
           </Paper> 
         </Box>
