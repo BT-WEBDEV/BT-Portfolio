@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import SkillsBox from '../components/skills/SkillsBox';
+import SkillsBox from '../components/skills/skillsBox.js';
 import Paper from '@mui/material/Paper';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
