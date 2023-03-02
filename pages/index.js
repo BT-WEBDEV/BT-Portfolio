@@ -1,18 +1,63 @@
 import Head from 'next/head'
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import SkillsBox from '../components/skills/SkillsBox';
+import Paper from '@mui/material/Paper';
+import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import GetFrontendSkillsAPI from "../lib/frontendSkillsAPI"
-import GetBackendSkillsAPI from "../lib/backendSkillsAPI"
-import GetDevopsSkillsAPI from "../lib/devopsSkillsAPI"
-import GetDesignSkillsAPI from "../lib/designSkillsAPI"
-import GetProductivitySkillsAPI from "../lib/productivitySkillsAPI"
+import useContentful from '../hooks/use-contenful';
 
+const query = ` {
+  skillsCollection {
+    items {
+      slug
+      name
+      usage
+      image {
+        url
+      }
+    }
+  }
+}
+`
 
 const drawerWidth = 240;
 
-export default function Home({allPosts}) {
+export default function Home() {
+  
+  let {data, errors} = useContentful(query)
+
+  if (errors) {
+    return <span style={{color:"red"}}> {errors.map(error => error.message).join(",")} </span>
+  }
+  
+  //Skeleton
+  if (!data) { 
+    return (
+      <>
+        <Box sx={{
+          display: 'flex',
+          justifyContent: "center",
+          flexWrap: 'wrap',
+          width: 'auto',
+          mt: 5, 
+          mb: 5
+          }}
+        > 
+          <Paper 
+            elevation={3} 
+            sx={{
+              p: 2
+            }}
+          >
+            <Skeleton variant="rounded" width={210} height={210} />
+          </Paper>
+        </Box> 
+      </>
+    )
+  }
+
   return (
       <>
       <Head>
@@ -53,20 +98,7 @@ export default function Home({allPosts}) {
             My Skill Set
           </Typography>
 
-          {/* FRONTEND SKILLS BOX  */}
-          <GetFrontendSkillsAPI/> 
-          
-          {/* BACKEND SKILLS BOX  */}
-          <GetBackendSkillsAPI/> 
-
-          {/* DEVOPS SKILLS BOX  */}
-          <GetDevopsSkillsAPI/> 
-          
-          {/* DESIGN SKILLS BOX  */}
-          <GetDesignSkillsAPI/>  
-
-          {/* PRODUCTIVITY SKILLS BOX  */}
-          <GetProductivitySkillsAPI/> 
+          <SkillsBox data={data} />
         </Box>
       </Box>  
       </>
