@@ -9,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ExperienceSkillChips from './experienceSkillChips';
-import styles from '../styles/experience.module.css'
+import styles from '../../styles/experience.module.css'
 
 
 export default function ExperienceComponent({experience}) {   
@@ -49,6 +49,7 @@ export default function ExperienceComponent({experience}) {
                 <Link 
                   href={experience.url}
                   target='_blank'
+                  rel="noopener"
                 >
                     <OpenInNewIcon />
                 </Link>
@@ -58,6 +59,7 @@ export default function ExperienceComponent({experience}) {
                 <Link 
                   href={experience.linkedin}
                   target='_blank'
+                  rel="noopener"
                 >
                     <LinkedInIcon />
                 </Link>
@@ -75,13 +77,20 @@ export default function ExperienceComponent({experience}) {
                     marginRight: 'auto'
                 }}
             /> 
-            <Typography variant="h4" align="center"
+            <Link 
+                id={experience.title}
+                key={experience.title}
+                href={'/experience/'+ experience.slug}
+                underline='hover'
+                variant="h4" 
+                align="center"
                 sx={{ 
-                pt: 3  
+                    pt: 3  
                 }}
             > 
                 {experience.name}
-            </Typography>
+            </Link>
+            
             <Typography variant="p" align="center"> 
                 {experience.position}
             </Typography>

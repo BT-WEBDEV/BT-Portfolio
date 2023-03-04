@@ -9,6 +9,81 @@ import Link from '@mui/material/Link';
 
 const drawerWidth = 240;
 
+const query = `
+query($slug: String!) {
+  skillsCollection(where: { slug: $slug }) {
+    items {
+      slug
+      name
+      description
+      usage
+      image {
+        url
+      }
+    }
+  }
+}
+`
+
+/// Get URL Path
+export async function getStaticPaths() { 
+  const results = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}`, {
+    method: "POST",
+    headers: {
+    "Content-Type": "application/json",
+    // Authenticate the request
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_CDA_TOKEN}`,
+    },
+    // send the GraphQL query
+    body: JSON.stringify({
+      query: `
+        {
+          skillsCollection {
+            items {
+              slug
+            }
+          }
+        }
+      `,
+    }),
+  })
+  .then((response) => response.json()); 
+
+  const slugs = results.data.skillsCollection.items.map(skill => skill.slug);
+
+  return {
+    paths: slugs.map(slug => ({ params: { slug } })),
+    fallback: false,
+  }
+}
+
+/// GET INFO FROM CONTENTFUL
+export async function getStaticProps({ params }) {
+    const data = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}`, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        // Authenticate the request
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_CDA_TOKEN}`,
+        },
+        // send the GraphQL query
+        body: JSON.stringify({ 
+          query,
+          variables: {
+            slug: params.slug,
+          },
+      }),
+    })
+    .then((response) => response.json()); 
+    return {
+        props: {
+          results: data,
+          params,
+        }
+    }
+}
+
+// Skill Specific Page 
 export default function Skill({results, params}) {
   const skill = results.data.skillsCollection.items.find(
     item => item.slug === params.slug
@@ -84,78 +159,7 @@ export default function Skill({results, params}) {
   ) 
 }
 
-const query = `
-query($slug: String!) {
-  skillsCollection(where: { slug: $slug }) {
-    items {
-      slug
-      name
-      description
-      usage
-      image {
-        url
-      }
-    }
-  }
-}
-`
 
-/// Get URL Path
-export async function getStaticPaths() { 
-  const results = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}`, {
-    method: "POST",
-    headers: {
-    "Content-Type": "application/json",
-    // Authenticate the request
-    Authorization: `Bearer ${process.env.NEXT_PUBLIC_CDA_TOKEN}`,
-    },
-    // send the GraphQL query
-    body: JSON.stringify({
-      query: `
-        {
-          skillsCollection {
-            items {
-              slug
-            }
-          }
-        }
-      `,
-    }),
-  })
-  .then((response) => response.json()); 
 
-  const slugs = results.data.skillsCollection.items.map(skill => skill.slug);
-
-  return {
-    paths: slugs.map(slug => ({ params: { slug } })),
-    fallback: false,
-  }
-}
-
-/// GET INFO FROM CONTENTFUL
-export async function getStaticProps({ params }) {
-    const data = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}`, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        // Authenticate the request
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_CDA_TOKEN}`,
-        },
-        // send the GraphQL query
-        body: JSON.stringify({ 
-          query,
-          variables: {
-            slug: params.slug,
-          },
-      }),
-    })
-    .then((response) => response.json()); 
-    return {
-        props: {
-          results: data,
-          params,
-        }
-    }
-}
 
 

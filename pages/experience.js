@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import * as React from 'react';
 import useContentful from '../hooks/use-contenful';
-import ExperienceComponent from '../components/experienceComponent';
+import ExperienceComponent from '../components/experience/experienceComponent';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
