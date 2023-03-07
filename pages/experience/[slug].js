@@ -1,10 +1,17 @@
 import Head from 'next/head'
 import * as React from 'react';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
+import Link  from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
+import Divider from '@mui/material/Divider';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import ExperienceSkillChips from '../../components/experience/experienceSkillChips';
+import styles from '../../styles/experience.module.css'
+
 
 const query = ` 
 query($slug: String!) {
@@ -126,10 +133,47 @@ export default function Experience({results, params}) {
           <Paper 
             elevation={3} 
             sx={{
-              m: 5
+              m:5, 
+              p: 2,
+              display: 'flex',
+              width: '100%',
+              justifyContent: 'center', 
+              flexDirection: 'column', 
+              overflow: 'hidden'
             }}
           >
+            {/* Experience Icons */}
+             <Box 
+              className={styles.experienceIcons}
+              sx={{
+                display: 'flex', 
+                flexDirection: 'row',
+                justifyContent: 'end', 
+              }}
+            >
+                {experience.url ? (
+                <Link 
+                  href={experience.url}
+                  target='_blank'
+                  rel="noopener"
+                >
+                    <OpenInNewIcon />
+                </Link>
+                ) : null}
+
+                {experience.linkedin ? (
+                <Link 
+                  href={experience.linkedin}
+                  target='_blank'
+                  rel="noopener"
+                >
+                    <LinkedInIcon />
+                </Link>
+                ) : null}
+            </Box>
+
             <Box 
+              className={styles.experiencePaper} 
               component="main"
               sx={{ 
                 display: 'flex', 
@@ -139,36 +183,64 @@ export default function Experience({results, params}) {
                 //width: { sm: `calc(100% - ${drawerWidth}px)` } 
               }}
             >
-              <Typography variant="h3" align="center">
-                {experience.name} 
-              </Typography> 
-
-  
               <Box sx={{ 
                   display: 'flex', 
                   justifyContent: 'center' 
                 }}
               > 
                 <Box
+                  id={experience.slug}
+                  className={styles.experienceLink}
                   component="img"
                   justifyContent="center"
-                  sx={{
-                    width: 150,
-                    maxWidth: { xs: 150, md: 150 },
-                  }}
                   alt="Skill Logo"
                   src={experience.image.url}
                 />
               </Box>
-  
-              <Typography 
-                paragraph 
-                align="center"
-                sx= {{
-                  px: 4
+
+              <Typography variant="h3" align="center">
+                {experience.name} 
+              </Typography> 
+
+              <Typography variant="p" align="center"> 
+                {experience.position}
+              </Typography>
+              
+              <Stack 
+                direction="row"
+                spacing={1}
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginTop: '25px'
+                }}>
+                    {experience.skillsCollection.items.map((skill, index) => {
+                        return <ExperienceSkillChips skill={skill} key={index}/>
+                    })}
+              </Stack>
+              <Divider
+                sx={{ 
+                    pt: 2  
                 }}
-              >
-                {experience.description}
+                />
+                <>
+                    {documentToReactComponents(
+                    experience.experience.json
+                    )}
+                </>
+              <Divider/>  
+              <Typography 
+                variant="p" 
+                align="center"
+                sx={{ 
+                    pt: 2  
+                }}
+              > 
+                  {experience.location}
+              </Typography>
+              <Typography variant="p" align="center"> 
+                  {experience.dateRange} 
               </Typography>
             </Box>
           </Paper>

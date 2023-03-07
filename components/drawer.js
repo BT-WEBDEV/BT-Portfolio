@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
+import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
@@ -34,7 +35,12 @@ function ResponsiveDrawer(props) {
 
     const drawer = (
         <div>
-          <Toolbar />
+          <Toolbar sx={{ 
+            justifyContent: 'center',
+            p: 3 
+            }}>
+            <Avatar alt="Brandon Tetrick" src="images/avatar.jpg" sx={{ width: 125, height: 125 }} />
+          </Toolbar>
           <Divider />
           <List>
             <ListItem disablePadding>
