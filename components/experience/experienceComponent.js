@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import Link  from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
+import { Box, Divider, Link, Paper, Stack, Typography } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ExperienceSkillChips from './experienceSkillChips';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -26,13 +25,16 @@ import ChatIcon from '@mui/icons-material/Chat';
 //Handles Theme Toggle Dark/Light Mode
 import dynamic from "next/dynamic";
 
+// Import Dynamic Theme Toggle
 const ThemeToggle = dynamic(() => import("./themeToggle"), {
   ssr: false,
 });
 
+// Set the Drawer Width
 const drawerWidth = 240;
 
 
+// Drawer Object
 function ResponsiveDrawer(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
