@@ -85,7 +85,7 @@ export default function Home() {
             Has provided academic and professional services for a wide variety of students, clients, and customers. 
             Life-long learner with a passion for web development and digital marketing.
           </Typography>
-
+          
           <Divider/> 
 
           <Typography 

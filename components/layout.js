@@ -4,7 +4,7 @@ import ResponsiveDrawer from "./drawer";
 import Toolbar from '@mui/material/Toolbar';
 
 
-export default function Layout({ children }) {
+export default function Layout({ children, mode, toggleMode }) {
 
     return (
       <Box sx={{ display: 'flex' }}>
@@ -14,7 +14,7 @@ export default function Layout({ children }) {
         <ResponsiveDrawer />
 
         <Box>
-            <Toolbar /> 
+            <Toolbar />
             {children}
         </Box>
       </Box>

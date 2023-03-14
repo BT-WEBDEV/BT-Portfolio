@@ -14,6 +14,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 
+// Icons 
 import HomeIcon from '@mui/icons-material/Home';
 import WorkIcon from '@mui/icons-material/Work';
 import BuildIcon from '@mui/icons-material/Build';
@@ -21,6 +22,13 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import BookIcon from '@mui/icons-material/Book';
 import ChatIcon from '@mui/icons-material/Chat';
+
+//Handles Theme Toggle Dark/Light Mode
+import dynamic from "next/dynamic";
+
+const ThemeToggle = dynamic(() => import("./themeToggle"), {
+  ssr: false,
+});
 
 const drawerWidth = 240;
 
@@ -117,7 +125,7 @@ function ResponsiveDrawer(props) {
                 ml: { sm: `${drawerWidth}px` },
                 }}
             >
-                <Toolbar>
+                <Toolbar sx={{ justifyContent: 'space-between' }}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
@@ -125,8 +133,9 @@ function ResponsiveDrawer(props) {
                         onClick={handleDrawerToggle}
                         sx={{ mr: 2, display: { sm: 'none' } }}
                     >
-                    <MenuIcon />
+                      <MenuIcon />
                     </IconButton>
+                    <ThemeToggle /> 
                 </Toolbar>
             </AppBar>
             <Box
