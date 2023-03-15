@@ -20,14 +20,30 @@ body[data-theme="dark"] {
   --color-bg-primary: #15232d;
 }
 
-
-
 body {
   background: var(--color-bg-primary) !important;
   color: var(--color-text-primary) !important;
   transition: background 0.25s ease-in-out;
 }
 
+/* Dark/Light Theme for MUI Components */ 
+[data-theme='dark'] .MuiPaper-root {
+  background: #1c3b48;
+  color: var(--color-text-primary); 
+  transition: background 0.25s ease-in-out;
+}
+
+[data-theme='light'] .MuiPaper-root {
+  transition: background 0.25s ease-in-out;
+}
+
+[data-theme='dark'] .MuiSvgIcon-root {
+  color: var(--color-text-primary); 
+}
+
+[data-theme='dark'] .MuiChip-label {
+  color: var(--color-text-primary);
+}
 
 a {
   color: inherit;
@@ -37,16 +53,6 @@ a {
 * {
   box-sizing: border-box;
 }
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-} */
 
 .title {
   text-align: center;

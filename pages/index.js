@@ -40,9 +40,8 @@ export default function Home() {
           display: 'flex',
           justifyContent: "center",
           flexWrap: 'wrap',
-          width: 'auto',
-          mt: 5, 
-          mb: 5
+          width: '100%',
+          m: 5
           }}
         > 
           <Paper 
