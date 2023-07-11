@@ -12,6 +12,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ExperienceSkillChips from '../../components/experience/experienceSkillChips';
 import styles from '../../styles/experience.module.css'
 
+const drawerWidth = 240;
 
 const query = ` 
 query($slug: String!) {

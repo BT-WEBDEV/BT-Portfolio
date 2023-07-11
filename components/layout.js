@@ -7,7 +7,10 @@ import Toolbar from '@mui/material/Toolbar';
 export default function Layout({ children, mode, toggleMode }) {
 
     return (
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ 
+        display: 'flex', 
+        justifyContent: 'center'
+      }}>
         <CssBaseline />
 
         {/* Responsive Drawer */}
