@@ -44,6 +44,9 @@ export default function ThemeToggle() {
         onClick={() => setActiveTheme(inactiveTheme)}
         checked={darkModeEnabled}
         onChange={handleSwitchToggle}
+        sx={{
+            marginLeft: 'auto'
+        }}
         /> 
     )
 }

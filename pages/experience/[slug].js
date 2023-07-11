@@ -127,7 +127,8 @@ export default function Experience({results, params}) {
         </Head>
         <Box 
           sx={{ 
-            display: 'flex' 
+            display: 'flex', 
+            justifyContent: 'center'
           }} 
         >
           <Paper 
