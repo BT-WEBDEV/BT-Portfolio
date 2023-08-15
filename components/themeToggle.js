@@ -39,14 +39,15 @@ export default function ThemeToggle() {
     }, [activeTheme]);
 
     return (
-        <Switch
-        inputProps={{ 'aria-label': 'Change to Dark mode' }}
-        onClick={() => setActiveTheme(inactiveTheme)}
-        checked={darkModeEnabled}
-        onChange={handleSwitchToggle}
-        sx={{
-            marginLeft: 'auto'
-        }}
-        /> 
+        <div style={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}>
+            <span style={{ marginRight: '8px' }}>Light</span>
+            <Switch
+                inputProps={{ 'aria-label': 'Change to Dark mode' }}
+                onClick={() => setActiveTheme(inactiveTheme)}
+                checked={darkModeEnabled}
+                onChange={handleSwitchToggle}
+            />
+            <span style={{ marginLeft: '8px' }}>Dark</span>
+        </div>
     )
 }
