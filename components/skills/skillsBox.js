@@ -8,15 +8,34 @@ import Typography from '@mui/material/Typography';
 
 export default function SkillsBox({data}) {
   // Group skills by usage
-  const order = ['Frontend', 'Backend', 'Devops', 'Design', 'Productivity'];
+  const order = ['Frontend', 'Backend', 'DevOps', 'Design', 'Productivity', 'Digital Marketing'];
+
+  // Order skills within in each usage
+  const usageOrder = {
+    "Frontend": ['HTML', 'CSS', 'Sass', 'JavaScript', 'jQuery', 'React', 'Next.JS', 'Bootstrap', 'Material UI', 'Markdown'],
+    "Backend": ['PHP', 'Wordpress', 'Node.JS', 'Python', 'Django', 'Ion', 'MySQL'],
+    "DevOps": ['Git', 'GitHub', 'Gulp.JS'],
+    "Design": ['Figma', 'Canva'],
+    "Productivity": ['Virtual Code Studio'],
+    "Digital Marketing": ['Google Analytics'],
+  };
+  
+
   const orderedSkills = order.reduce((acc, key) => {
     const skillsWithUsage = data.skillsCollection.items.filter(skill => skill.usage === key);
-    if (skillsWithUsage.length > 0) {
-      acc.push({ usage: key, skills: skillsWithUsage });
+    
+    // Sort the skills based on the defined order for the current usage
+    const sortedSkills = skillsWithUsage.sort((a, b) =>
+      usageOrder[key].indexOf(a.name) - usageOrder[key].indexOf(b.name)
+    );
+  
+    if (sortedSkills.length > 0) {
+      acc.push({ usage: key, skills: sortedSkills });
     }
+    
     return acc;
   }, []);
-
+  
   return (
     <>
       {orderedSkills.map(({ usage, skills }) => (
