@@ -12,11 +12,11 @@ export default function SkillsBox({data}) {
 
   // Order skills within in each usage
   const usageOrder = {
-    "Frontend": ['HTML', 'CSS', 'Sass', 'JavaScript', 'jQuery', 'React', 'Next.JS', 'Bootstrap', 'Material UI', 'Markdown'],
+    "Frontend": ['HTML', 'CSS', 'Sass', 'JavaScript', 'jQuery', 'React.JS', 'Next.JS', 'Bootstrap', 'Material UI', 'Markdown'],
     "Backend": ['PHP', 'Wordpress', 'Node.JS', 'Python', 'Django', 'Ion', 'MySQL'],
     "DevOps": ['Git', 'GitHub', 'Gulp.JS'],
-    "Design": ['Figma', 'Canva'],
-    "Productivity": ['Virtual Code Studio'],
+    "Design": ['Adobe Photoshop', 'Adobe Illustrator', 'Figma', 'Canva'], 
+    "Productivity": ['Asana', 'Virtual Code Studio'],
     "Digital Marketing": ['Google Analytics'],
   };
   
