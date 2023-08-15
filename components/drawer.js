@@ -69,7 +69,7 @@ function ResponsiveDrawer(props) {
                 <ListItemText primary="Experience" />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding>
+            <ListItem disablePadding style={{ display: 'none' }}>
               <ListItemButton href="/projects">
                 <ListItemIcon>
                   <BuildIcon />
@@ -77,7 +77,7 @@ function ResponsiveDrawer(props) {
                 <ListItemText primary="Projects" />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding>
+            <ListItem disablePadding style={{ display: 'none' }}>
               <ListItemButton href="/skills">
                 <ListItemIcon>
                   <LightbulbIcon />
@@ -88,7 +88,7 @@ function ResponsiveDrawer(props) {
           </List>
           <Divider />
           <List>
-            <ListItem disablePadding>
+            <ListItem disablePadding style={{ display: 'none' }}>
               <ListItemButton href="/certifications">
                 <ListItemIcon>
                   <WorkspacePremiumIcon />
@@ -96,7 +96,7 @@ function ResponsiveDrawer(props) {
                 <ListItemText primary="Certifications" />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding>
+            <ListItem disablePadding style={{ display: 'none' }}>
               <ListItemButton href="/blog">
                 <ListItemIcon>
                   <BookIcon />
@@ -104,7 +104,7 @@ function ResponsiveDrawer(props) {
                 <ListItemText primary="Blog" />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding>
+            <ListItem disablePadding style={{ display: 'none' }}>
               <ListItemButton href="/contact">
                 <ListItemIcon>
                   <ChatIcon />
