@@ -49,7 +49,7 @@ function ResponsiveDrawer(props) {
             justifyContent: 'center',
             p: 3 
             }}>
-            <Avatar alt="Brandon Tetrick" src="images/avatar.jpg" sx={{ width: 125, height: 125 }} />
+            <Avatar alt="Brandon Tetrick" src="/images/avatar.jpg" sx={{ width: 125, height: 125 }} />
           </Toolbar>
           <Divider />
           <List>

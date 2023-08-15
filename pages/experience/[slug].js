@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import * as React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Layout from '../../components/layout';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Link  from '@mui/material/Link';
@@ -247,7 +248,6 @@ export default function Experience({results, params}) {
             </Box>
           </Paper>
         </Box>
-        
       </>
     ) 
   }
