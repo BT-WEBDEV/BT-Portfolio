@@ -7,8 +7,7 @@ import ExperienceSkillChips from './experienceSkillChips';
 import styles from '../../styles/experience.module.css'
 
 
-export default function ExperienceComponent({experience}) {   
-    console.log(experience.skillsCollection.items)
+export default function ExperienceComponent({experience}) {  
     return (
       <Box 
       key={experience.slug}

@@ -16,7 +16,11 @@ export default function Layout({ children, mode, toggleMode }) {
         {/* Responsive Drawer */}
         <ResponsiveDrawer />
 
-        <Box>
+        <Box
+        sx={{
+          width: '100%'
+        }}
+        >
             <Toolbar />
             {children}
         </Box>

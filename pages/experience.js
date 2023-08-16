@@ -1,13 +1,17 @@
 import Head from 'next/head'
 import * as React from 'react';
-import useContentful from '../hooks/use-contenful';
-import ExperienceComponent from '../components/experience/experienceComponent';
+
+// Material UI
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-import Skeleton from '@mui/material/Skeleton';
-import Drawer from '../components/drawer'
+
+// Components
+import SkeletonLoading from '../components/skeletonLoading.js';
+import ExperienceComponent from '../components/experience/experienceComponent';
+
+// Hooks
+import useContentful from '../hooks/use-contenful';
 
 const drawerWidth = 240;
 
@@ -59,30 +63,8 @@ export default function Experience() {
   }
 
   if (!data) { 
-    return (
-      <>
-        <Box sx={{
-          display: 'flex',
-          justifyContent: "center",
-          flexWrap: 'wrap',
-          width: 'auto',
-          mt: 5, 
-          mb: 5
-          }}
-        > 
-          <Paper 
-            elevation={3} 
-            sx={{
-              p: 2
-            }}
-          >
-            <Skeleton variant="rounded" width={210} height={210} />
-          </Paper>
-        </Box> 
-      </>
-    )
+    return <SkeletonLoading/> 
   }
-  
   
   return (
       <>

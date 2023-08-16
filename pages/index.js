@@ -1,11 +1,16 @@
 import Head from 'next/head'
 import * as React from 'react';
+
+// Material UI
 import Box from '@mui/material/Box';
-import SkillsBox from '../components/skills/skillsBox.js';
-import Paper from '@mui/material/Paper';
-import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+
+//Components
+import SkillsBox from '../components/skills/skillsBox.js';
+import SkeletonLoading from '../components/skeletonLoading.js';
+
+//Hooks
 import useContentful from '../hooks/use-contenful';
 
 const query = ` {
@@ -31,30 +36,10 @@ export default function Home() {
   if (errors) {
     return <span style={{color:"red"}}> {errors.map(error => error.message).join(",")} </span>
   }
-  
+
   //Skeleton
   if (!data) { 
-    return (
-      <>
-        <Box sx={{
-          display: 'flex',
-          justifyContent: "center",
-          flexWrap: 'wrap',
-          width: '100%',
-          m: 5
-          }}
-        > 
-          <Paper 
-            elevation={3} 
-            sx={{
-              p: 2
-            }}
-          >
-            <Skeleton variant="rounded" width={210} height={210} />
-          </Paper>
-        </Box> 
-      </>
-    )
+    return <SkeletonLoading />;
   }
 
   return (
