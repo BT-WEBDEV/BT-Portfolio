@@ -98,7 +98,8 @@ export default function Skill({results, params}) {
       </Head>
       <Box 
         sx={{ 
-          display: 'flex'
+          display: 'flex', 
+          flexDirection: 'column'
         }} 
       >
         <Paper 

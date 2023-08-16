@@ -80,7 +80,7 @@ export default function Experience() {
           sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)`, justifyContent: 'center' } }}
         >
           <Typography 
-            variant="h3" 
+            variant="h1" 
             align="center"
           >
             Experience

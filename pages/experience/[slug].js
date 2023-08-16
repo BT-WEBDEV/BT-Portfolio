@@ -30,7 +30,7 @@ query($slug: String!) {
         experience {
           json
         }
-        skillsCollection(limit:10) {
+        skillsCollection(limit:15) {
           items {
             ... on Skills {
               name
@@ -212,12 +212,8 @@ export default function Experience({results, params}) {
               <Stack 
                 direction="row"
                 spacing={1}
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginTop: '25px'
-                }}>
+                className={styles.chipsContainer}
+                >
                     {experience.skillsCollection.items.map((skill, index) => {
                         return <ExperienceSkillChips skill={skill} key={index}/>
                     })}

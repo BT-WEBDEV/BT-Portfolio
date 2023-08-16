@@ -34,8 +34,6 @@
   padding-right: 150px; 
 }
 
-
-
 @media (max-width: 768px) {
     .chipsContainer {
         padding: 0 20px; /* Add desired padding for larger screens */
