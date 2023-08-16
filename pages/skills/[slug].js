@@ -1,11 +1,18 @@
 import Head from 'next/head'
 import * as React from 'react';
+
+//Material UI
+import Avatar from '@mui/material/Avatar';
+import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
-import Link from '@mui/material/Link';
+import Divider from '@mui/material/Divider';
+
+//Custom Styles
+import styles from '../../styles/skill.module.css'
 
 const drawerWidth = 240;
 
@@ -19,6 +26,17 @@ query($slug: String!) {
       usage
       image {
         url
+      }
+      relatedExperienceCollection(limit:5) {
+        items{
+          ... on Experience {
+            name	
+            slug 
+            image {
+                url
+            }	
+          }
+        }
       }
     }
   }
@@ -85,6 +103,7 @@ export async function getStaticProps({ params }) {
 
 // Skill Specific Page 
 export default function Skill({results, params}) {
+
   const skill = results.data.skillsCollection.items.find(
     item => item.slug === params.slug
   );
@@ -152,6 +171,62 @@ export default function Skill({results, params}) {
             >
               {skill.description}
             </Typography>
+
+            {skill.relatedExperienceCollection.items.length > 0 && (
+              <>
+                <Divider/> 
+
+                <Typography variant="h5" align="center">
+                  Related Experience
+                </Typography> 
+
+                <Box
+                  sx= {{
+                    display: 'flex', 
+                    flexWrap: 'wrap',
+                    justifyContent: 'center'
+                  }}
+                > 
+
+                  {skill.relatedExperienceCollection.items.map((experience, index) => (
+                    <Box
+                      key={index} 
+                      sx={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center', 
+                        '& > :not(style)': {
+                          m: 1,
+                          width: 128,
+                          height: 128,
+                        },
+                      }}
+                    >
+                      <Link 
+                        href={`/experience/${experience.slug}`}
+                        className={styles.skillLink}
+                        underline="none"
+                        style={{
+                          backgroundImage: `url(${experience.image.url})`,
+                        }}
+                      > 
+                        <Typography 
+                          h3="true"
+                          align="center"
+                          className={styles.hoverableShow}
+                        >
+                          {experience.name}
+                        </Typography>   
+                      </Link>
+                    
+                    </Box>
+                  
+                  ))}
+                
+                </Box>
+              </>
+            )}
+
           </Box>
         </Paper>
       </Box>
@@ -159,6 +234,7 @@ export default function Skill({results, params}) {
     </>
   ) 
 }
+
 
 
 
