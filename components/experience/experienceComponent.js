@@ -8,6 +8,7 @@ import styles from '../../styles/experience.module.css'
 
 
 export default function ExperienceComponent({experience}) {   
+    console.log(experience.skillsCollection.items)
     return (
       <Box 
       key={experience.slug}
@@ -93,12 +94,8 @@ export default function ExperienceComponent({experience}) {
             <Stack 
                 direction="row"
                 spacing={1}
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginTop: '25px'
-                }}>
+                className={styles.chipsContainer}
+                >
                     {experience.skillsCollection.items.map((skill, index) => {
                         return <ExperienceSkillChips skill={skill} key={index}/>
                     })}

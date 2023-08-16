@@ -23,3 +23,27 @@
 .experiencePaper > p:empty { 
     display: none; 
 }
+
+.chipsContainer {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  padding-left: 150px; 
+  padding-right: 150px; 
+}
+
+
+
+@media (max-width: 768px) {
+    .chipsContainer {
+        padding: 0 20px; /* Add desired padding for larger screens */
+    }
+}
+
+@media (max-width: 1024px) {
+    .chipsContainer {
+        padding: 0 20px; /* Add desired padding for larger screens */
+    }
+}

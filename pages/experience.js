@@ -25,7 +25,7 @@ const query = ` {
       experience {
         json
       }
-      skillsCollection(limit:10) {
+      skillsCollection(limit:15) {
         items {
           ... on Skills {
             name
