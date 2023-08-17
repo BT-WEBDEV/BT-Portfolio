@@ -17,7 +17,7 @@ export default function SkillsBox({data}) {
     "DevOps": ['Git', 'GitHub', 'Gulp.JS'],
     "Design": ['Adobe Photoshop', 'Adobe Illustrator', 'Figma', 'Canva'], 
     "Productivity": ['Asana', 'Virtual Code Studio'],
-    "Digital Marketing": ['Google Analytics'],
+    "Digital Marketing": ['Google Analytics', 'Google Tag Manager', 'Google Search Console'],
   };
   
 
