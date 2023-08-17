@@ -65,11 +65,10 @@ export default function Home() {
           <Typography 
             paragraph align="center"
           >
-            Results-driven web developer with over 7 years of experience spanning diverse projects in both public and private sectors. 
-            Specializing in developing dynamic websites that blend creativity and cutting-edge technology. 
-            Adept at implementing strategic digital marketing initiatives that have led to a 25% average increase in website traffic across various projects. 
-            Lifelong learner, dedicated to staying ahead of industry trends and leveraging emerging technologies. 
-            Passionate about web development and digital innovation. Proficient in HTML, CSS, JavaScript, and proficient in collaborating with cross-functional teams to deliver high-quality solutions.
+           Results-driven web developer with over 7 years of experience spanning diverse projects in both public and private sectors. 
+           Specializing in developing dynamic websites that blend creativity and cutting-edge technology. 
+           Adept at implementing strategic digital marketing initiatives that have led to a 25% average increase in website traffic across various projects. 
+           Lifelong learner deeply passionate about web development and digital innovation.
           </Typography>
           
           <Divider/> 
