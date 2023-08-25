@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-
+import Script from "next/script";
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -28,7 +28,8 @@ class MyDocument extends Document {
               href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
             />
             {/* Fancybox JS */}
-            <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" async></script>
+            <Script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" />
+            {/* <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" async></script> */}
           </Head>
           <body>
             <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />

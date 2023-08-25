@@ -3,7 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import ResponsiveDrawer from "./drawer";
 import Toolbar from '@mui/material/Toolbar';
-
+import { Fancybox } from '@fancyapps/ui';
 
 export default function Layout({ children, mode, toggleMode }) {
     
