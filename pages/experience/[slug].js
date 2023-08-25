@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import * as React from 'react';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import Layout from '../../components/layout';
+
+//Material UI
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Link  from '@mui/material/Link';
@@ -10,10 +10,16 @@ import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
+//Components
 import ExperienceSkillChips from '../../components/experience/experienceSkillChips';
+
+//Styles
 import styles from '../../styles/experience.module.css'
 
-const drawerWidth = 240;
+//Contenful
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 
 const query = ` 
 query($slug: String!) {

@@ -12,6 +12,7 @@
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
+    "@fancyapps/ui": "^5.0.22",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.0",
     "contentful": "^9.2.5",

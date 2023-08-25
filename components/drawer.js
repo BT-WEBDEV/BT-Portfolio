@@ -69,12 +69,12 @@ function ResponsiveDrawer(props) {
                 <ListItemText primary="Experience" />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding style={{ display: 'none' }}>
-              <ListItemButton href="/projects">
+            <ListItem disablePadding>
+              <ListItemButton href="/portfolio">
                 <ListItemIcon>
                   <BuildIcon />
                 </ListItemIcon>
-                <ListItemText primary="Projects" />
+                <ListItemText primary="Portfolio" />
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding style={{ display: 'none' }}>

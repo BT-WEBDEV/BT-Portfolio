@@ -20,7 +20,15 @@ class MyDocument extends Document {
     `;
       return (
         <Html>
-          <Head />
+          <Head >
+            {/* Fancybox CSS */}
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+            />
+            {/* Fancybox JS */}
+            <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+          </Head>
           <body>
             <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
             <Main />
