@@ -30,6 +30,7 @@ const query = `
 query GetPortfolioItem($slug: String!) {
     portfolioCollection(where: { slug: $slug }) {
         items {
+            order
             slug
             name
             description {

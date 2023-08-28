@@ -28,6 +28,7 @@ import { textAlign } from '@mui/system';
 const query = ` {
   portfolioCollection {
     items {
+      order
       slug
       name
       introSnippet
@@ -105,44 +106,39 @@ export default function Portfolio() {
 
           <Divider/> 
 
-          <Grid container spacing={3}
-            sx= {{
-              justifyContent:"center", 
-              marginTop: "10px" 
-            }}
-          >
-            { data.portfolioCollection.items.map(project => {
-              // console.table(project); 
-              return (
-                <Grid item xs={12} sm={12} md={6} lg={4} xl={3} key={project.slug} sx={{display:'flex'}}>
+          <Grid container spacing={3} sx={{ justifyContent: "center", marginTop: "10px" }}>
+            {data.portfolioCollection.items
+              .sort((a, b) => a.order - b.order) // Sort the items by the "order" property
+              .map((project) => (
+                <Grid item xs={12} sm={12} md={6} lg={4} xl={3} key={project.slug} sx={{ display: 'flex' }}>
                   <Card>
                     <Link key={project.slug} href={`/portfolio/${project.slug}`} passHref>
-                    <CardActionArea>
-                      <CardMedia component="img" height="200" image={project.image.url} style={{ objectFit: 'contain', padding: '10px' }} />
-                      <CardContent>
-                        <Typography 
-                          variant="h4" 
-                          component="div"
-                          sx={{
-                            textAlign: 'center'
-                          }}
-                        >
-                          {project.name}
-                        </Typography>
-                        <Typography
-                          sx={{
-                            display: "-webkit-box",
-                            overflow: "hidden",
-                            textOverflow: "ellipsis",
-                            mt: 2, 
-                            textAlign: 'center'
-                          }}
-                          variant="body2"
-                        >
-                          {project.introSnippet}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
+                      <CardActionArea>
+                        <CardMedia component="img" height="200" image={project.image.url} style={{ objectFit: 'contain', padding: '10px' }} />
+                        <CardContent>
+                          <Typography 
+                            variant="h4" 
+                            component="div"
+                            sx={{
+                              textAlign: 'center'
+                            }}
+                          >
+                            {project.name}
+                          </Typography>
+                          <Typography
+                            sx={{
+                              display: "-webkit-box",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              mt: 2, 
+                              textAlign: 'center'
+                            }}
+                            variant="body2"
+                          >
+                            {project.introSnippet}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
                     </Link>
                     <Box />
                     <Box
@@ -154,35 +150,34 @@ export default function Portfolio() {
                         padding: '10px'
                       }}
                     >
-                        {/* Map through relatedSkillsCollection and display chips */}
-                        {project.relatedSkillsCollection.items.slice(0, 5).map((skill, index) => (
-                          <Link key={skill.slug} href={`/skills/${skill.slug}`} passHref>
-                            <Chip
-                              avatar={<Avatar alt={skill.slug} src={skill.image.url} />}
-                              label={skill.name}
-                              variant="outlined"
-                            />
-                          </Link>
-                        ))}
-                        {project.relatedSkillsCollection.items.length > 5 && (
-                          <Typography
-                            component="span"
-                            variant="body2"
-                            sx={{
-                              color: 'black', 
-                              marginTop: 'auto', 
-                              marginBottom: 'auto'
-                            }}
-                          >
-                            + {project.relatedSkillsCollection.items.length - 5} more...
-                          </Typography>
-                        )}
+                      {/* Map through relatedSkillsCollection and display chips */}
+                      {project.relatedSkillsCollection.items.slice(0, 5).map((skill, index) => (
+                        <Link key={skill.slug} href={`/skills/${skill.slug}`} passHref>
+                          <Chip
+                            avatar={<Avatar alt={skill.slug} src={skill.image.url} />}
+                            label={skill.name}
+                            variant="outlined"
+                          />
+                        </Link>
+                      ))}
+                      {project.relatedSkillsCollection.items.length > 5 && (
+                        <Typography
+                          component="span"
+                          variant="body2"
+                          sx={{
+                            color: 'black', 
+                            marginTop: 'auto', 
+                            marginBottom: 'auto'
+                          }}
+                        >
+                          + {project.relatedSkillsCollection.items.length - 5} more...
+                        </Typography>
+                      )}
                     </Box>
                   </Card>
                 </Grid>
-              )})}
+              ))}
           </Grid>
-          
         </Box>
       </Box>
       </>
