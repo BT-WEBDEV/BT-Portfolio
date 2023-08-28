@@ -16,6 +16,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import PublicIcon from '@mui/icons-material/Public';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 
+//Fancybox
+import { Fancybox } from '@fancyapps/ui';
+
 //Contentful
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 

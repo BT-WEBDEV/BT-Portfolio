@@ -29,7 +29,6 @@ class MyDocument extends Document {
             />
             {/* Fancybox JS */}
             <Script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" />
-            {/* <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js" async></script> */}
           </Head>
           <body>
             <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
