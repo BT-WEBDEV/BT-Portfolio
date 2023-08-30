@@ -3,8 +3,11 @@ import * as React from 'react';
 
 // Material UI
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import Link from '@mui/material/Link'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography';
+
 
 //Components
 import SkillsBox from '../components/skills/skillsBox.js';
@@ -70,6 +73,29 @@ export default function Home() {
            Adept at implementing strategic digital marketing initiatives that have led to a 25% average increase in website traffic across various projects. 
            Lifelong learner deeply passionate about web development and digital innovation.
           </Typography>
+
+          <Stack 
+            direction={{ xs: 'column', sm: 'column', md: 'row', lg: 'row', xl: 'row' }}
+            spacing={2} 
+            justifyContent="center" 
+            sx={{
+              m: 5
+            }}
+          > 
+            <Typography 
+              variant="h4" 
+              align="center"
+            >
+            Check out my: 
+            </Typography>
+            <Link href="/experience" underline="hover" variant="h4" color="inherit" sx={{textAlign: 'center'}}>
+              Experience
+            </Link>
+            <Link href="/portfolio" underline="hover" variant="h4" color="inherit" sx={{textAlign: 'center'}}>
+              Portfolio
+            </Link>
+
+          </Stack>
           
           <Divider/> 
 
