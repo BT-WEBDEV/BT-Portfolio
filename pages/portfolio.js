@@ -106,7 +106,7 @@ export default function Portfolio() {
 
           <Divider/> 
 
-          <Grid container spacing={3} sx={{ justifyContent: "center", marginTop: "10px" }}>
+          <Grid container spacing={3} sx={{ justifyContent: "start", marginTop: "10px" }}>
             {data.portfolioCollection.items
               .sort((a, b) => a.order - b.order) // Sort the items by the "order" property
               .map((project) => (
