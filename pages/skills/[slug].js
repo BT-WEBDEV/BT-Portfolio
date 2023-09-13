@@ -10,6 +10,11 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card'; 
+import CardActionArea from '@mui/material/CardActionArea';
+import CardMedia from '@mui/material/CardMedia'; 
+import CardContent from '@mui/material/CardContent';
 
 //Custom Styles
 import styles from '../../styles/skill.module.css'
@@ -35,6 +40,18 @@ query($slug: String!) {
             image {
                 url
             }	
+          }
+        }
+      }
+      relatedProjectsCollection(limit:20) {
+        items {
+          ... on Portfolio {
+            name
+            slug
+            image {
+              url
+            }
+            introSnippet
           }
         }
       }
@@ -124,7 +141,7 @@ export default function Skill({results, params}) {
         <Paper 
           elevation={3} 
           sx={{
-            m: 5
+            m: 3
           }}
         >
           <Box 
@@ -176,8 +193,8 @@ export default function Skill({results, params}) {
               <>
                 <Divider/> 
 
-                <Typography variant="h5" align="center">
-                  Related Experience
+                <Typography variant="h4" align="center">
+                  Related {skill.name} Experience
                 </Typography> 
 
                 <Box
@@ -224,6 +241,53 @@ export default function Skill({results, params}) {
                   ))}
                 
                 </Box>
+              </>
+            )}
+
+            {skill.relatedProjectsCollection.items.length > 0 && (
+              <>
+                <Divider/> 
+
+                <Typography variant="h4" align="center">
+                  Related {skill.name} Projects
+                </Typography> 
+
+                <Grid container spacing={3} sx={{ justifyContent: "start" }}> 
+                  {skill.relatedProjectsCollection.items.map((project, index) => (
+                    <Grid item xs={12} sm={12} md={6} lg={4} xl={3} key={project.slug} sx={{ display: 'flex' }}> 
+                      <Card>
+                      <Link key={project.slug} href={`/portfolio/${project.slug}`} sx={{textDecoration: 'none', color: 'black'}}>
+                        <CardActionArea>
+                          <CardMedia component="img" height="200" image={project.image.url} style={{ objectFit: 'contain', padding: '10px' }} />
+                          <CardContent>
+                            <Typography 
+                              variant="h4" 
+                              component="div"
+                              sx={{
+                                textAlign: 'center',
+                              }}
+                            >
+                              {project.name}
+                            </Typography>
+                            <Typography
+                              sx={{
+                                display: "-webkit-box",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                mt: 2, 
+                                textAlign: 'center'
+                              }}
+                              variant="body2"
+                            >
+                              {project.introSnippet}
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Link>
+                      </Card>
+                    </Grid> 
+                  ))}
+                </Grid>
               </>
             )}
 
